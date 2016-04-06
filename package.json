@@ -16,8 +16,20 @@
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-2": "^6.5.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
     "eslint": "^1.5.1",
-    "react": "^0.14.8"
+    "espower-babel": "^4.0.3",
+    "karma": "^0.13.22",
+    "karma-browserify": "^5.0.3",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-html2js-preprocessor": "^0.1.0",
+    "karma-mocha": "^0.2.2",
+    "mocha": "^2.4.5",
+    "power-assert": "^1.3.1",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "watchify": "^3.7.0"
   },
   "files": [
     "package.json",
@@ -42,6 +54,6 @@
     "lint": "eslint src test",
     "prebuild": "npm ls react && npm rm react",
     "prepublish": "rm -rf lib && npm run lint && npm run test && npm run build",
-    "test": "echo 'TBD'"
+    "test": "karma start karma.conf.js"
   }
 }
