@@ -1,0 +1,47 @@
+{
+  "name": "@fand/react-infinite-scroll-container",
+  "description": "A simple container component for infinite scroll",
+  "version": "0.0.1",
+  "author": "fand",
+  "bugs": {
+    "url": "https://github.com/fand/react-infinite-scroll-container/issues"
+  },
+  "dependencies": {
+    "lodash": "^4.7.0"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.5.1",
+    "babel-eslint": "^4.1.3",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "eslint": "^1.5.1",
+    "react": "^0.14.8"
+  },
+  "files": [
+    "package.json",
+    "README.md",
+    "index.js",
+    "lib"
+  ],
+  "homepage": "https://github.com/fand/react-infinite-scroll-container",
+  "keywords": [
+    "react",
+    "scroll",
+    "infinite scroll"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fand/react-infinite-scroll-container.git"
+  },
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "lint": "eslint src test",
+    "test": "echo 'TBD'",
+    "prepublish": "rm -rf lib && npm run lint && npm run test && npm run build",
+    "prebuild": "npm rm react"
+  }
+}
