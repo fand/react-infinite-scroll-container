@@ -27,9 +27,9 @@
   ],
   "homepage": "https://github.com/fand/react-infinite-scroll-container",
   "keywords": [
+    "infinite scroll",
     "react",
-    "scroll",
-    "infinite scroll"
+    "scroll"
   ],
   "license": "MIT",
   "main": "index.js",
@@ -40,8 +40,8 @@
   "scripts": {
     "build": "babel src --out-dir lib",
     "lint": "eslint src test",
-    "test": "echo 'TBD'",
+    "prebuild": "npm ls react && npm rm react",
     "prepublish": "rm -rf lib && npm run lint && npm run test && npm run build",
-    "prebuild": "npm rm react"
+    "test": "echo 'TBD'"
   }
 }

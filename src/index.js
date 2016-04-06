@@ -1,3 +1,3 @@
 import InfiniteScrollContainer from './InfiniteScrollContainer';
 
-export default InfiniteScrollContainer;
+module.exports = InfiniteScrollContainer;
