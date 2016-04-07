@@ -36,7 +36,7 @@ class App extends React.Component {
       <div className="App">
         <InfiniteScrollContainer
           padding={100}
-          throttle={300}
+          interval={300}
           onScroll={() => this.loadNextItems()}>
 
           {this.state.items.map((i) => <div key={i}>{i}</div>)}
