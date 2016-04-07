@@ -18,11 +18,14 @@
     "babel-preset-stage-2": "^6.5.0",
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
+    "browserify-istanbul": "^2.0.0",
     "eslint": "^1.5.1",
     "espower-babel": "^4.0.3",
+    "isparta": "^4.0.0",
     "karma": "^0.13.22",
     "karma-browserify": "^5.0.3",
     "karma-chrome-launcher": "^0.2.3",
+    "karma-coverage": "^0.5.5",
     "karma-html2js-preprocessor": "^0.1.0",
     "karma-mocha": "^0.2.2",
     "mocha": "^2.4.5",
@@ -54,6 +57,8 @@
     "lint": "eslint src test",
     "prebuild": "npm ls react && npm rm react",
     "prepublish": "rm -rf lib && npm run lint && npm run test && npm run build",
-    "test": "karma start karma.conf.js"
+    "pretest": "npm ls react || npm i react",
+    "test": "karma start karma.conf.js",
+    "travis": "npm run lint && npm run test"
   }
 }

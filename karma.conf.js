@@ -16,12 +16,18 @@ module.exports = function (config) {
     browserify : {
       debug     : true,
       transform : [
+        require('browserify-istanbul')({ instrumenter : require('isparta') }),
         ['babelify', { plugins : ['babel-plugin-espower'] }],
       ],
       paths     : ['./src/'],
     },
 
-    reporters   : ['progress'],
+    reporters        : ['progress', 'coverage'],
+    coverageReporter : {
+      type   : 'lcov',
+      subdir : '.',
+    },
+
     port        : 9876,
     colors      : true,
     logLevel    : config.LOG_INFO,
@@ -29,5 +35,16 @@ module.exports = function (config) {
     browsers    : ['Chrome'],
     singleRun   : true,
     concurrency : Infinity,
+
+    customLaunchers: {
+      ChromeTravis: {
+        base  : 'Chrome',
+        flags : ['--no-sandbox'],
+      },
+    },
   });
+
+  if (process.env.TRAVIS) {
+    config.browsers = ['ChromeTravis'];
+  }
 };
