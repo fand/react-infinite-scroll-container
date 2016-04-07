@@ -1,6 +1,18 @@
-# react-infinite-scroll-container
+# @fand/react-infinite-scroll-container
 
-A simple container component for infinite scroll.
+[![Build Status](http://img.shields.io/travis/fand/react-infinite-scroll-container.svg?style=flat-square)](https://travis-ci.org/fand/react-infinite-scroll-container)
+[![NPM Version](https://img.shields.io/npm/v/@fand/react-infinite-scroll-container.svg?style=flat-square)](https://www.npmjs.com/package/@fand/react-infinite-scroll-container)
+[![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](http://fand.mit-license.org/)
+[![Coverage Status](https://img.shields.io/coveralls/fand/react-infinite-scroll-container.svg?style=flat-square)](https://coveralls.io/github/fand/react-infinite-scroll-container?branch=master)
+
+A simple component for infinite scroll.
+
+
+## Installation
+
+```
+npm install -S @fand/react-infinite-scroll-container
+```
 
 ## Example
 
