@@ -11,22 +11,14 @@ storiesOf('InfiniteScroll', module)
   .add('No scroll', () => (
     <div className="Wrapper">
       <InfiniteScrollContainer onScroll={action('scrolled')}>
-
-        {range(3).map(i => (
-          <div className="Item" key={i}> {i} </div>
-        ))}
-
+        {range(3).map(i => <div className="Item" key={i}>{i}</div>)}
       </InfiniteScrollContainer>
     </div>
   ))
   .add('scroll', () => (
     <div className="Wrapper">
       <InfiniteScrollContainer onScroll={action('scrolled')}>
-
-        {range(10).map(i => (
-          <div className="Item" key={i}> {i} </div>
-        ))}
-
+        {range(10).map(i => <div className="Item" key={i}>{i}</div>)}
       </InfiniteScrollContainer>
     </div>
   ));
