@@ -10,6 +10,7 @@
     "lodash": "^4.7.0"
   },
   "devDependencies": {
+    "@kadira/storybook": "^1.5.0",
     "babel": "^6.5.2",
     "babel-cli": "^6.5.1",
     "babel-eslint": "^6.0.2",
@@ -31,8 +32,10 @@
     "karma-mocha": "^0.2.2",
     "mocha": "^2.4.5",
     "power-assert": "^1.3.1",
+    "raw-loader": "^0.5.1",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
+    "style-loader": "^0.13.1",
     "watchify": "^3.7.0"
   },
   "files": [
@@ -57,10 +60,9 @@
     "build": "babel src --out-dir lib",
     "lint": "eslint src test",
     "postversion": "git push && git push --tags",
-    "prebuild": "npm ls react && npm rm react",
     "prepublish": "rm -rf lib && npm run lint && npm run test && npm run build",
-    "pretest": "npm ls react || npm i react",
     "preversion": "rm -rf lib && npm run test",
+    "storybook": "start-storybook -p 9001",
     "test": "karma start karma.conf.js",
     "travis": "npm run lint && npm run test"
   }

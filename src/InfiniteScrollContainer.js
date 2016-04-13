@@ -29,6 +29,7 @@ class InfiniteScrollContainer extends React.Component {
   componentDidMount () {
     this._interval = Number.isFinite(this.props.interval) ? +this.props.interval : INTERVAL;
     this._padding  = Number.isFinite(this.props.padding) ? +this.props.padding   : PADDING;
+    this._pos      = 0;
 
     this._onScroll = throttle((e) => this.onScroll(e), this._interval);
     this.refs.outer.addEventListener('scroll', this._onScroll);
@@ -37,17 +38,24 @@ class InfiniteScrollContainer extends React.Component {
   componentWillUnmount () {
     this.refs.outer.removeEventListener('scroll', this._onScroll);
     this._onScroll = null;  // 循環参照しているため、明示的に破棄する
+    this._pos = 0;
   }
 
   onScroll (e) {
     if (this.props.disabled) { return; }
 
-    const target    = e.target;
-    const remaining = target.scrollHeight - (target.clientHeight + target.scrollTop);
+    const target = e.target;
 
-    if (remaining < this._padding) {
-      this.props.onScroll();
-    }
+    // 下方向へのスクロールでなければ無視する
+    const lastPos = this._pos;
+    this._pos = target.scrollTop;
+    if (this._pos - lastPos <= 0) { return; }
+
+    // 残り高さがpadding以下でなければ無視する
+    const remaining = target.scrollHeight - (target.clientHeight + target.scrollTop);
+    if (this._padding <= remaining) { return; }
+
+    this.props.onScroll();
   }
 
   render () {
